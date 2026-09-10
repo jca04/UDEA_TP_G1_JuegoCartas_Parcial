@@ -54,4 +54,18 @@ public class Jugador {
         return resultado;
     }
 
+    public int getPuntaje() {
+        int[] contadores = new int[NombreCarta.values().length];
+        for (Carta carta : cartas) {
+            contadores[carta.getNombre().ordinal()]++;
+        }
+        int puntaje = 0;
+        for (Carta carta : cartas) {
+            if (contadores[carta.getNombre().ordinal()] == 1) {
+                puntaje += carta.getValor();
+            }
+        }
+        return puntaje;
+    }
+
 }

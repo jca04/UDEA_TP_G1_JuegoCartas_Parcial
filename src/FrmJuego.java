@@ -27,6 +27,10 @@ public class FrmJuego extends JFrame {
         btnVerificar.setBounds(120, 10, 100, 25);
         add(btnVerificar);
 
+        JButton btnPuntaje = new JButton("Puntaje");
+        btnPuntaje.setBounds(230, 10, 100, 25);
+        add(btnPuntaje);
+
         // agregar un conjunto de pestañas
         tpJugadores = new JTabbedPane();
         tpJugadores.setBounds(10, 45, 470, 200);
@@ -48,6 +52,10 @@ public class FrmJuego extends JFrame {
 
         btnVerificar.addActionListener(evento -> {
             verificar();
+        });
+
+        btnPuntaje.addActionListener(evento -> {
+            puntaje();
         });
 
         /*
@@ -86,6 +94,19 @@ public class FrmJuego extends JFrame {
         if (!mensaje.isEmpty()) {
             JOptionPane.showMessageDialog(null, mensaje);
         }
+    }
+
+    private void puntaje() {
+        String mensaje = "";
+        switch (tpJugadores.getSelectedIndex()) {
+            case 0:
+                mensaje = "Puntaje: " + jugador1.getPuntaje();
+                break;
+            case 1:
+                mensaje = "Puntaje: " + jugador2.getPuntaje();
+                break;
+        }
+        JOptionPane.showMessageDialog(null, mensaje);
     }
 
 }

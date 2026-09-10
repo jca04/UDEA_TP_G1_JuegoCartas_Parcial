@@ -33,6 +33,7 @@ public class Carta {
                 JOptionPane.showMessageDialog(null, getNombre() + " de " + getPinta());
             }
         });
+        
 
     }
 
@@ -57,4 +58,18 @@ public class Carta {
         return NombreCarta.values()[residuo - 1];
     }
 
+    public int getValor() {
+        switch ( getNombre()) {
+            case AS:
+            case JACK:
+            case QUEEN:
+            case KING:
+                return 10;
+            default:
+                return getNombre().ordinal() + 1;
+        }
+    }
+
+    
+    
 }
