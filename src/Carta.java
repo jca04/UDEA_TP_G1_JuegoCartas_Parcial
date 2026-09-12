@@ -37,7 +37,6 @@ public class Carta {
                 JOptionPane.showMessageDialog(null, getNombre() + " de " + getPinta());
             }
         });
-        
 
     }
 
@@ -63,17 +62,16 @@ public class Carta {
     }
 
     public int getValor() {
-        switch ( getNombre()) {
-            case AS:
-            case JACK:
-            case QUEEN:
-            case KING:
-                return 10;
-            default:
-                return getNombre().ordinal() + 1;
-        }
+        // switch ( getNombre()) {
+        // case AS:
+        // case JACK:
+        // case QUEEN:
+        // case KING:
+        // return 10;
+        // default:
+        // return getNombre().ordinal() + 1;
+        // }
+        return getNombre().ordinal() + 1;
     }
 
-    
-    
 }

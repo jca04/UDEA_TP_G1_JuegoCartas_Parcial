@@ -1,6 +1,4 @@
 import java.awt.Color;
-import java.util.Random;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -91,12 +89,18 @@ public class FrmJuego extends JFrame {
                 mensaje = jugador2.getGrupos();
                 break;
         }
+
+        String verificarPinta = verificarPinta();
+        String puntaje = puntaje();
+
+        mensaje += "\n" + verificarPinta + "\n" + puntaje;
+
         if (!mensaje.isEmpty()) {
             JOptionPane.showMessageDialog(null, mensaje);
         }
     }
 
-    private void puntaje() {
+    private String puntaje() {
         String mensaje = "";
         switch (tpJugadores.getSelectedIndex()) {
             case 0:
@@ -106,7 +110,21 @@ public class FrmJuego extends JFrame {
                 mensaje = "Puntaje: " + jugador2.getPuntaje();
                 break;
         }
-        JOptionPane.showMessageDialog(null, mensaje);
+        // JOptionPane.showMessageDialog(null, mensaje);
+        return mensaje;
+    }
+
+    private String verificarPinta() {
+        String mensaje = "";
+        switch (tpJugadores.getSelectedIndex()) {
+            case 0:
+                mensaje = jugador1.getEscalera();
+                break;
+            case 1:
+                mensaje = jugador2.getEscalera();
+                break;
+        }
+        return mensaje;
     }
 
 }
